@@ -3,22 +3,68 @@
 This project contains multiple Python programs along with their corresponding unit tests.
 All test cases follow best practices using the Arrange-Act-Assert (AAA) methodology.
 
+## Setting Up the Environment
+
+### 1. Create a Virtual Environment (Recommended)
+Using a virtual environment (`venv`) helps isolate dependencies for the project.
+
+#### On Windows:
+```sh
+python -m venv venv
+venv\Scripts\activate
+```
+
+#### On macOS/Linux:
+```sh
+python -m venv venv
+source venv/bin/activate
+```
+
+### 2. Install Dependencies
+Ensure you have all required packages installed:
+```sh
+pip install -r requirements.txt
+```
+
 ## Running Tests
 
 To run the tests, execute:
 
+### Run All Tests with `unittest`
 ```sh
 python -m unittest discover -s tests
 ```
 
-Or using pytest:
-
+### Run All Tests with `pytest`
 ```sh
 pytest tests/
 ```
 
-To run all tests using a single script from the `tests/` directory:
+### Run a Specific Test File
+```sh
+pytest tests/test_hackerrank_funny_string.py
+```
 
+### Run a Single Test Case
+```sh
+pytest tests/test_hackerrank_funny_string.py::TestFunnyString::test_edge_case
+```
+
+### Run All Tests Using a Single Script
+If you have a script to run all tests from the `tests/` directory:
 ```sh
 python tests/run_all_tests.py
 ```
+
+## Updating Dependencies
+If new dependencies are added, update `requirements.txt` with:
+```sh
+pip freeze > requirements.txt
+```
+
+## Deactivating the Virtual Environment
+When done, deactivate the virtual environment:
+```sh
+deactivate
+```
+
