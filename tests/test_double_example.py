@@ -4,7 +4,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 from unittest.mock import MagicMock
-from double_example import Database, fetch_user_name
+from double_example import fetch_user_name
 
 
 class TestDatabaseMocking(unittest.TestCase):
