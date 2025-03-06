@@ -1,5 +1,9 @@
 import unittest
-from src.number_utils import is_prime_list
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+from number_utils import is_prime_list
 
 
 class TestNumberUtils(unittest.TestCase):
