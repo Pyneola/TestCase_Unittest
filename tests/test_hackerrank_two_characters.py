@@ -1,5 +1,10 @@
 import unittest
-from src.hackerrank_two_characters import two_characters
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
+from hackerrank_two_characters import two_characters
 
 
 class TestTwoCharacters(unittest.TestCase):

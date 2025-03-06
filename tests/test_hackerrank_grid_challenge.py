@@ -1,5 +1,10 @@
 import unittest
-from src.hackerrank_grid_challenge import grid_challenge
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+
+from hackerrank_grid_challenge import grid_challenge
 
 
 class TestGridChallenge(unittest.TestCase):
