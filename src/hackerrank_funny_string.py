@@ -1,7 +1,8 @@
 def funny_string(s):
-    return (
-        "Funny"
-        if list(map(abs, [ord(s[i]) - ord(s[i - 1]) for i in range(1, len(s))]))
-        == list(map(abs, [ord(s[-i]) - ord(s[-i - 1]) for i in range(1, len(s))]))
-        else "Not Funny"
-    )
+    reverse = [ord(letter) for letter in list(reversed(s))]
+    s = [ord(letter) for letter in s]
+    r = [abs(reverse[i] - reverse[i + 1]) for i in range(len(reverse) - 1)]
+    s = [abs(s[i] - s[i + 1]) for i in range(len(reverse) - 1)]
+    if r == s:
+        return "Funny"
+    return "Not Funny"

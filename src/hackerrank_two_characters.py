@@ -1,12 +1,21 @@
+from itertools import combinations
+
+
+def validate(s):
+    for ind in range(len(s) - 1):
+        if s[ind] == s[ind + 1]:
+            return False
+    return True
+
+
 def two_characters(s):
-    unique_chars = set(s)
-    max_length = 0
-    for a in unique_chars:
-        for b in unique_chars:
-            if a != b:
-                filtered = [c for c in s if c in (a, b)]
-                if all(
-                    filtered[i] != filtered[i + 1] for i in range(len(filtered) - 1)
-                ):
-                    max_length = max(max_length, len(filtered))
-    return max_length
+    str_set = set(list(s))
+    variants = combinations(str_set, 2)
+    max_res = 0
+
+    for comb in variants:
+        t = [c for c in s if c == comb[0] or c == comb[1]]
+        if validate(t):
+            max_res = max(max_res, len(t))
+
+    return max_res

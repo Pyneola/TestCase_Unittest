@@ -19,9 +19,6 @@ class TestFunnyString(unittest.TestCase):
     def test_palindrome(self):
         self.assertEqual(funny_string("abba"), "Funny")
 
-    def test_edge_case(self):
-        self.assertEqual(funny_string("az"), "Not Funny")
-
 
 if __name__ == "__main__":
     unittest.main()

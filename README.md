@@ -16,3 +16,9 @@ Or using pytest:
 ```sh
 pytest tests/
 ```
+
+To run all tests using a single script from the `tests/` directory:
+
+```sh
+python tests/run_all_tests.py
+```
