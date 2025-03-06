@@ -1,11 +1,11 @@
 # Project Overview
 
 This project contains multiple Python programs along with their corresponding unit tests.
-All test cases follow best practices using the Arrange-Act-Assert (AAA) methodology.
+All test cases using the Arrange-Act-Assert (AAA) methodology.
 
 ## Setting Up the Environment
 
-### 1. Create a Virtual Environment (Recommended)
+### 1. Create a Virtual Environment
 Using a virtual environment (`venv`) helps isolate dependencies for the project.
 
 #### On Windows:
@@ -47,13 +47,14 @@ pytest tests/test_hackerrank_funny_string.py
 
 ### Run a Single Test Case
 ```sh
-pytest tests/test_hackerrank_funny_string.py::TestFunnyString::test_edge_case
+pytest tests/test_hackerrank_funny_string.py::TestFunnyString::test_funny_string
 ```
 
 ### Run All Tests Using a Single Script
 If you have a script to run all tests from the `tests/` directory:
 ```sh
-python tests/run_all_tests.py
+cd tests
+python run_all_tests.py
 ```
 
 ## Updating Dependencies
