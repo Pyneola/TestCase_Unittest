@@ -12,22 +12,37 @@ class TestDatabaseStub(unittest.TestCase):
     def test_fetch_user_name_with_stub(self):
         stub_db = StubDatabase()
         result = fetch_user_name(stub_db, 1)
-        self.assertEqual(result, f"StubUser1")
+        self.assertEqual(result, "StubUser1")
 
     def test_fetch_user_name_with_different_id(self):
         stub_db = StubDatabase()
         result = fetch_user_name(stub_db, 99)
-        self.assertEqual(result, f"StubUser99")
+        self.assertEqual(result, "StubUser99")
 
     def test_fetch_user_name_with_zero_id(self):
         stub_db = StubDatabase()
         result = fetch_user_name(stub_db, 0)
-        self.assertEqual(result, f"StubUser0")
+        self.assertEqual(result, "StubUser0")
 
     def test_fetch_user_name_with_negative_id(self):
         stub_db = StubDatabase()
         result = fetch_user_name(stub_db, -5)
-        self.assertEqual(result, f"StubUser-5")
+        self.assertEqual(result, "StubUser-5")
+
+    def test_fetch_user_name_with_large_id(self):
+        stub_db = StubDatabase()
+        result = fetch_user_name(stub_db, 1000000)
+        self.assertEqual(result, "StubUser1000000")
+
+    def test_fetch_user_name_with_non_integer_id(self):
+        stub_db = StubDatabase()
+        with self.assertRaises(TypeError):
+            fetch_user_name(stub_db, "abc")
+
+    def test_fetch_user_name_with_none_id(self):
+        stub_db = StubDatabase()
+        with self.assertRaises(TypeError):
+            fetch_user_name(stub_db, None)
 
 
 if __name__ == "__main__":
