@@ -29,6 +29,27 @@ class TestDatabaseMocking(unittest.TestCase):
         fetch_user_name(mock_db, 3)
         mock_db.get_user.assert_called_once_with(3)
 
+    def test_fetch_user_name_with_no_return_value(self):
+        mock_db = MagicMock()
+        mock_db.get_user.return_value = None
+
+        result = fetch_user_name(mock_db, 4)
+        self.assertEqual(result, "Unknown")
+
+    def test_fetch_user_name_with_empty_name(self):
+        mock_db = MagicMock()
+        mock_db.get_user.return_value = {"id": 5, "name": ""}
+
+        result = fetch_user_name(mock_db, 5)
+        self.assertEqual(result, "Unknown")
+
+    def test_fetch_user_name_with_exception(self):
+        mock_db = MagicMock()
+        mock_db.get_user.side_effect = Exception("Database error")
+
+        result = fetch_user_name(mock_db, 6)
+        self.assertEqual(result, "Unknown")
+
 
 if __name__ == "__main__":
     unittest.main()
