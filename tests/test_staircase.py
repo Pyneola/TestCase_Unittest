@@ -18,9 +18,21 @@ class TestStaircase(unittest.TestCase):
 
     def test_custom_pattern(self):
         self.assertEqual(staircase(2, "*"), " *\n**")
+        self.assertEqual(staircase(3, "$"), "  $\n $$\n$$$")
 
     def test_single_step(self):
         self.assertEqual(staircase(1), "#")
+        self.assertEqual(staircase(1, "@"), "@")
+
+    def test_large_staircase(self):
+        self.assertEqual(staircase(5), "    #\n   ##\n  ###\n ####\n#####")
+        self.assertEqual(staircase(6), "     #\n    ##\n   ###\n  ####\n #####\n######")
+
+    def test_edge_case_zero_height(self):
+        self.assertEqual(staircase(0), "")
+
+    def test_edge_case_negative_height(self):
+        self.assertEqual(staircase(-3), "")
 
 
 if __name__ == "__main__":
