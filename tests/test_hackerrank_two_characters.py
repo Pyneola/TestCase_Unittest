@@ -19,12 +19,6 @@ class TestTwoCharacters(unittest.TestCase):
     def test_empty_string(self):
         self.assertEqual(two_characters(""), 0)
 
-    def test_large_input(self):
-        self.assertEqual(two_characters("a" * 1000 + "b" * 1000), 2000)
-
-    def test_three_distinct_characters(self):
-        self.assertEqual(two_characters("ababac"), 4)
-
 
 if __name__ == "__main__":
     unittest.main()

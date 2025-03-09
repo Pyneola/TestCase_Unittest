@@ -1,12 +1,12 @@
 def caesar_cipher(s, k):
-    result = ""
+    result = []
     for char in s:
         if char.isalpha():
             shift = k % 26
             if char.islower():
-                result += chr((ord(char) - ord("a") + shift) % 26 + ord("a"))
+                result.append(chr((ord(char) - ord("a") + shift) % 26 + ord("a")))
             else:
-                result += chr((ord(char) - ord("A") + shift) % 26 + ord("A"))
+                result.append(chr((ord(char) - ord("A") + shift) % 26 + ord("A")))
         else:
-            result += char
-    return result
+            result.append(char)
+    return "".join(result)

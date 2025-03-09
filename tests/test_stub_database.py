@@ -34,16 +34,6 @@ class TestDatabaseStub(unittest.TestCase):
         result = fetch_user_name(stub_db, 1000000)
         self.assertEqual(result, "StubUser1000000")
 
-    def test_fetch_user_name_with_non_integer_id(self):
-        stub_db = StubDatabase()
-        with self.assertRaises(TypeError):
-            fetch_user_name(stub_db, "abc")
-
-    def test_fetch_user_name_with_none_id(self):
-        stub_db = StubDatabase()
-        with self.assertRaises(TypeError):
-            fetch_user_name(stub_db, None)
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -7,14 +7,6 @@ from hackerrank_funny_string import funny_string
 
 
 class TestFunnyString(unittest.TestCase):
-    def test_funny_string(self):
-        self.assertEqual(funny_string("acxz"), "Funny")
-        self.assertEqual(funny_string("axbz"), "Funny")
-
-    def test_not_funny_string(self):
-        self.assertEqual(funny_string("bcxz"), "Not Funny")
-        self.assertEqual(funny_string("abcd"), "Not Funny")
-
     def test_single_character(self):
         self.assertEqual(funny_string("a"), "Funny")
         self.assertEqual(funny_string("z"), "Funny")

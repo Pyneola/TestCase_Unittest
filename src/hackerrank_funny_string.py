@@ -1,8 +1,14 @@
 def funny_string(s):
-    reverse = [ord(letter) for letter in list(reversed(s))]
-    s = [ord(letter) for letter in s]
-    r = [abs(reverse[i] - reverse[i + 1]) for i in range(len(reverse) - 1)]
-    s = [abs(s[i] - s[i + 1]) for i in range(len(reverse) - 1)]
-    if r == s:
+    r = s[::-1]
+
+    s_diff = []
+    r_diff = []
+
+    for i in range(1, len(s)):
+        s_diff.append(abs(ord(s[i]) - ord(s[i - 1])))
+        r_diff.append(abs(ord(r[i]) - ord(r[i - 1])))
+
+    if s_diff == r_diff:
         return "Funny"
-    return "Not Funny"
+    else:
+        return "Not Funny"
